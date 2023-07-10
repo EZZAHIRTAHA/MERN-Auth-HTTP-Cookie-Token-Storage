@@ -6,9 +6,9 @@ dotenv.config()
 const app = express();
 const PORT = process.env.PORT || 5000
 import { errorHandler, notFound } from './middlewares/ErrorMiddleware.js';
+import connectDb from './db/config.js';
 
-
-app.use('/api', router)
+app.use('/api/auth', router)
 app.use(errorHandler)
 app.use(notFound)
 app.listen(PORT, () => {
@@ -18,5 +18,6 @@ app.listen(PORT, () => {
 app.get('/', (req, res) => {
     res.send('Hello! ')
 })
+connectDb()
 
 
