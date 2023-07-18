@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 
 const connectDb = async() => {
@@ -10,7 +10,7 @@ const connectDb = async() => {
         throw new Error("Can't Connect To MongoDB".red.bold)
     } 
 }
-console.log(mongoose.connection.db)
+
 
 
 
