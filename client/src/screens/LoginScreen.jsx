@@ -8,7 +8,7 @@ const LoginScreen = () => {
 
   console.log(email + password);
   return (
-    <section className='flex h-[35rem] justify-center items-center flex-col w-full p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20'>
+    <section className='flex h-[35rem] scale-up-center justify-center items-center flex-col w-full p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20'>
   <form className='w-full sm:w-2/3 md:w-1/2 lg:w-1/3 bg-gray-900 p-6 md:p-8 lg:p-10 rounded-lg'>
     <div className="mb-6">
       <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
