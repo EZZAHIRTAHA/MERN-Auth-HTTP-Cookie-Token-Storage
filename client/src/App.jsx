@@ -1,8 +1,7 @@
 import React from 'react'
-import { Navbar } from './components'
-import HomeScreen from './screens/HomeScreen'
+import { Navbar,Me } from './components'
 import { Routes, Route } from 'react-router-dom'
-import { LoginScreen, RegisterScreen } from './screens'
+import { LoginScreen, RegisterScreen,HomeScreen} from './screens'
 
 const App = () => {
   return (
@@ -13,6 +12,7 @@ const App = () => {
         <Route path='/login' element={<LoginScreen/>} />
         <Route path='/register' element={<RegisterScreen/>} />
       </Routes>
+      <Me/>
 
     </div>
   )
