@@ -1,13 +1,28 @@
 import React, { useState } from 'react'
-
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { setData } from '../redux/slices/authSlice'
 const LoginScreen = () => {
 
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const res = await login({
+        email, password
+      }).unwrap();
+      dispatch(setData({ ...res }))
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <section className='flex h-[35rem] scale-up-center justify-center items-center flex-col w-full p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20'>

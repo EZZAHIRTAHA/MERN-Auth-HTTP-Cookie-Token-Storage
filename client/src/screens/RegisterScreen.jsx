@@ -1,4 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { setData } from '../redux/slices/authSlice';
+import { useRegisterMutation } from '../redux/slices/userApiSlice';
 
 const RegisterScreen = () => {
 
@@ -10,14 +14,41 @@ const RegisterScreen = () => {
   });
   // console.log(formData);
 
+  const dispatch = useDispatch()
+
+  const navigate = useNavigate()
+
+  const [register] = useRegisterMutation();
+
+  const { userInfo } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate('/');
+    }
+  }, [navigate, userInfo]);
+  
+  
   const handleChange = (event) => {
     const {name, value} = event.target
     setFormData(formData => ({...formData, [name]: value}))
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-  }
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { name, email, password } = formData
+      try {
+        const res = await register({ name, email, password }).unwrap();
+        dispatch(setData({ ...res }));
+        navigate('/');
+      } catch (err) {
+        console.log(err);
+      }
+  };
+
+  
   return (
     <section className='flex scale-up-center h-[35rem] justify-center items-center flex-col w-full'>
   <form onSubmit={handleSubmit} className='w-11/12 md:w-2/3 lg:w-1/3 bg-gray-900 p-6 sm:p-[5rem] rounded-lg'>

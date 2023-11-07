@@ -8,7 +8,7 @@ import
     logoutUser,
 } 
 from "../controllers/UserController.js";
-
+import {protect} from '../middlewares/authMiddleware.js'
 
 
 

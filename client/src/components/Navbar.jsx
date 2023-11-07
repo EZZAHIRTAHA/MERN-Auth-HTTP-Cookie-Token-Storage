@@ -29,7 +29,9 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
-                {toggle && <MediaNav />}
+                <div className="transition-all ease-out duration-500">
+                    {toggle && <MediaNav />}
+                </div>
             </nav>
   )}
 

@@ -17,7 +17,7 @@ app.use(express.json())
  * express.urlencoded({ extended: true }): This middleware is used to parse incoming requests with URL-encoded payloads. It enables Express to automatically parse the request body if it's in the format of URL-encoded data. The extended: true option allows the parsing of rich objects and arrays, while extended: false only supports simpler data structures. Similar to express.json(), this middleware sets the req.body property to contain the parsed data, allowing access to it in subsequent route handlers. This middleware is commonly used for processing form submissions or requests that send data as URL-encoded parameters.
  */
 app.use(express.urlencoded({extended: true}))
-app.use('/api/auth', router)
+app.use('/api/users', router)
 app.use(errorHandler)
 app.use(notFound)
 app.listen(PORT, () => {

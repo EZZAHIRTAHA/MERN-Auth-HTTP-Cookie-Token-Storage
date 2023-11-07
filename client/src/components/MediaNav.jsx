@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const MediaNav = () => {
   return (
-    <div className='w-full scale-up-center p-4 sm:hidden flex justify-center gap-3 items-center flex-col'>
+    <div className='w-full  scale-up-center p-4 sm:hidden flex justify-center gap-3 items-center flex-col'>
         <Link to="/login" className=" bg-slate-950 p-2 text-md font-medium rounded-md w-full flex justify-center items-center gap-2 text-white hover:underline ">
             <FiLogIn/>
             Sign up
